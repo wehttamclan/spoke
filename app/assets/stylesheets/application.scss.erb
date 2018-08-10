@@ -1,0 +1,417 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+
+@import "bootstrap";
+
+body, html {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+header {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.jumbotron {
+  border-radius: 0%;
+  margin: 0px;
+}
+
+.table-header {
+  background-color: rbga(53, 125, 63, 0.5);
+  border: 0px;
+}
+
+.pagination-links {
+  font-size: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-button {
+  padding: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.delete-button {
+  padding: 3px;
+}
+
+.retired-button {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.station-index-main {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-index-main {
+  display: flex;
+  justify-content: center;
+}
+
+.conditions-index-main {
+  display: flex;
+  justify-content: center;
+}
+
+.button-group {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.show-info {
+  border-bottom: 1px solid rgba(160, 175, 186, 0.4);
+}
+
+.show-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.show-main {
+  margin-top: 12px;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-edit-button {
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+.accessory-show-main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.accessory-show-subheader {
+  display: flex;
+  justify-content: center;
+}
+
+.accessory-card {
+  font-size: 22px;
+  border-radius: 5px;
+  width: 400px;
+  max-height: 400px;
+}
+
+.accessory-show-buttons {
+  width: 400px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+.margin-right-20 {
+  margin-right: 20px;
+}
+
+.height-40 {
+  height: 41px;
+}
+
+.index-retire-button {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+.bikeshop-subheader {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-bikeshop-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.accessory-show-button-retire {
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.form-block {
+  font-size: 20px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-buttons {
+  border-top: 1px solid rgba(160, 175, 186, 0.4);
+  padding-top: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.accessory-show-button-activate {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.form-cancel-button {
+  margin-right: 30px;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.create-account-button {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-link {
+  color: rgba(160, 175, 186, 1.0);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 8px;
+}
+
+.main {
+  height: 85%;
+  display: flex;
+  border-bottom: 1px solid rgba(160, 175, 186, 0.4);
+}
+
+.left-main {
+  background-color: rgba(70, 150, 233, 1.0);
+  background-position: center;
+  width: 50%;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.follow-your-interests {
+  display: flex;
+}
+
+.hear-what-people-are-talking-about {
+  display: flex;
+}
+
+.join-the-conversation {
+  display: flex;
+}
+
+.right-main {
+  width: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-main-header {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-main-subheader {
+  margin-top: 25px;
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-chart-bar {
+  margin-top: 0px;
+  margin-right: 25px;
+  color: white;
+  font-size: 40px;
+  height: 55px;
+  width: 55px;
+}
+
+.fa-bicycle {
+  margin-top: 0px;
+  margin-right: 25px;
+  color: white;
+  font-size: 40px;
+  height: 55px;
+  width: 55px;
+}
+
+.fa-road {
+  margin-top: 00px;
+  margin-right: 25px;
+  color: white;
+  font-size: 40px;
+  height: 55px;
+  width: 55px;
+}
+
+.welcome-signup-button {
+  margin-top: 20px;
+  font-size: 20px;
+  padding-left: 208px;
+  padding-right: 208px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 30px;
+}
+
+.welcome-login-button {
+  margin-top: 20px;
+  font-size: 20px;
+  padding-left: 208px;
+  padding-right: 208px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 30px;
+}
+
+.nav-bike {
+  padding-top: 7px;
+}
+
+.card {
+  width: 400px;;
+  height: auto;
+}
+
+#table-entry {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#bike-id {
+  font-size: 8px;
+}
+
+#header {
+  background-color: rgba(52, 123, 246, 0.75);
+}
+
+#trips-index-table {
+  width: 1800px;
+}
+
+#station-index-table {
+  width: 55%;
+}
+
+#conditions-index-table {
+  width: 70%;
+}
+
+#trip-index-table {
+  width: 90%;
+}
+
+.height-100 {
+  height: 100%;
+  width: 100%;
+}
+
+#magnifying-glass {
+  height: 55px;
+  width: 55px;
+  padding-right: 25px;
+}
+
+#people-icon {
+  height: 55px;
+  width: 55px;
+  padding-right: 25px;
+}
+
+#message-icon {
+  height: 55px;
+  width: 55px;
+  padding-right: 25px;
+}
+
+#twitter-logo {
+  height: 70px;
+  width: 70px;
+}
+
+#login-button {
+  color: rgb(52, 151, 240);
+  font-size: 16px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: 1px solid rgb(52, 151, 240);
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#right-subheader {
+  font-size: 36px;
+}
+
+#signup-button {
+  font-size: 20px;
+  color: white;
+  background-color: rgb(25, 151, 240);
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 30px;
+}
+
+#join-twitter {
+  margin-top: 50px;
+  width: 75%;
+  display: flex;
+}
+
+#thumbnail {
+  max-height: 10px;
+  max-width: 10px;
+}

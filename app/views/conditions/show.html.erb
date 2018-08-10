@@ -1,0 +1,28 @@
+<header class='jumbotron' id='header'>
+  <h1 class='text-white'>Weather Conditions for <%= @condition.date.strftime("%m/%d/%Y") %></h1>
+  <% if admin_user? %>
+    <%= link_to 'Create New Weather Condition', new_admin_condition_path, class:'btn btn-secondary button-link' %>
+  <% end %>
+</header>
+
+<section class='show-main'>
+  <div class="show-info">
+    <div>Max Temperature: <%= @condition.max_temperature %> ºF</div>
+    <div>Mean Temperature: <%= @condition.mean_temperature %> ºF</div>
+    <div>Min Temperature: <%= @condition.min_temperature %> ºF</div>
+    <div>Mean Humidity: <%= @condition.mean_humidity %> %</div>
+    <div>Mean Visibility: <%= @condition.mean_visibility %> Miles</div>
+    <div>Mean Wind Speed: <%= @condition.mean_wind_speed %> mph</div>
+    <div>Precipitation: <%= @condition.precipitation %> "</div>
+  </div>
+  <%= link_to '<< Back to Conditions Index', conditions_path %>
+</section>
+
+<div class="show-buttons">
+  <div class="button-group">
+    <% if admin_user? %>
+      <%= button_to 'Edit', edit_admin_condition_path(@condition), method: :get, class:'btn btn-success show-edit-button' %>
+      <%= button_to 'Delete', admin_condition_path(@condition), method: :delete, data: {confirm: "Really want to delete this condition?"}, class:'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>

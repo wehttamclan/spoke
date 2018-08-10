@@ -1,0 +1,238 @@
+<header class='jumbotron' id='header'>
+  <h1 class='text-white'>Trips Dashboard</h1>
+</header>
+<header class=''>
+</header>
+<div class="">
+
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-2"></div>
+    <table class="table table-striped col-4">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Ride Duration stats</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Average Ride Duration:</td>
+          <td><%= (@ride_durations[1] / 60.to_f).to_i %> minutes</td>
+        </tr>
+        <tr>
+          <td>Longest Ride Duration:</td>
+          <td><%= (@ride_durations[0] / 60.to_f).to_i %> minutes</td>
+        </tr>
+        <tr>
+          <td>Shortest Ride Duration:</td>
+          <td><%= (@ride_durations[2] / 60.to_f).to_i %> minute</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="col-1"></div>
+
+    <table class="table table-striped col-3">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Most Ridden Bike</th>
+          <th scope="col"></th>
+          <th scope="col">Least Ridden Bike</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="most-and-least-ridden-bike">
+        <tr>
+          <td>Id: <%= @bike_info[:most_ridden_bike].first %></td>
+          <td></td>
+          <td>Id: <%= @bike_info[:least_ridden_bike].first %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Rides: <%= @bike_info[:most_ridden_bike].last %></td>
+          <td></td>
+          <td>Rides: <%= @bike_info[:least_ridden_bike].last %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <table class="table table-striped col-4">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Most Popular Stations</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Station Where Most Rides Start:</td>
+          <td><%= @station_info.first.name %></td>
+        </tr>
+        <tr>
+          <td>Station Where Most Rides End:</td>
+          <td><%= @station_info.last.name  %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-1"></div>
+    <table class="table table-striped col-3 subscription-types">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Subscription Type</th>
+          <th scope="col">Count</th>
+          <th scope="col">Percentage of Total Trips</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @subscription_type_info.first.each do |subscription, count| %>
+        <tr>
+          <td><%= subscription %>:</td>
+          <td><%= count %></td>
+          <td><%= ((count.to_f / @subscription_type_info.last.to_f) * 100).round(2) %>%</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <table class="table table-striped col-4">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Rides Per Month</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ordered_rides = @rides_per_month.sort_by { |date, rides| date } %>
+        <% ordered_rides.each do |date, count| %>
+        <tr>
+          <td><%= date.strftime('%B') %> <%= date.strftime('%Y') %></td>
+          <td>Rides: <%= count %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="col-1"></div>
+    <table class="table table-striped col-3 most-rides-by-date">
+      <thead class="bg-secondary text-white">
+        <tr>
+          <th scope="col-6">Date With Most Rides: <%= @ride_info[:most_rides][:date].strftime('%m/%d/%Y') %></th>
+          <th scope="col-6">Ride Count: <%= @ride_info[:most_rides][:rides] %></th>
+        </tr>
+      </thead>
+      <thead class="thead-dark">
+        <tr>
+          <th>Weather Conditions:</td>
+          <th scope="col-6"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Max Temperature: </td>
+          <td><%= @ride_info[:most_rides][:condition].max_temperature %> ºF</td>
+        </tr>
+        <tr>
+          <td>Mean Temperature: </td>
+          <td><%= @ride_info[:most_rides][:condition].mean_temperature %> ºF</td>
+        </tr>
+        <tr>
+          <td>Min Temperature: </td>
+          <td><%= @ride_info[:most_rides][:condition].min_temperature %> ºF</td>
+        </tr>
+        <tr>
+          <td>Mean Humidity: </td>
+          <td><%= @ride_info[:most_rides][:condition].mean_humidity %>%</td>
+        </tr>
+        <tr>
+          <td>Mean Visibility: </td>
+          <td><%= @ride_info[:most_rides][:condition].mean_visibility %> miles</td>
+        </tr>
+        <tr>
+          <td>Mean Wind Speed: </td>
+          <td><%= @ride_info[:most_rides][:condition].mean_wind_speed %> mph</td>
+        </tr>
+        <tr>
+          <td>Preciptation: </td>
+          <td><%= @ride_info[:most_rides][:condition].precipitation %> "</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th scope="col-6"></th>
+          <th scope="col-6"></th>
+        </tr>
+      </thead>
+      <thead class="bg-secondary text-white">
+        <tr class="least-rides-by-date-head">
+          <th scope="col-6">Date With Fewest Rides: <%= @ride_info[:least_rides][:date].strftime('%m/%d/%Y') %></th>
+          <th scope="col-6">Ride Count: <%= @ride_info[:least_rides][:rides] %></th>
+        </tr>
+      </thead>
+      <thead class="thead-dark">
+        <tr>
+          <th class="font-weight-bold">Weather Conditions:</td>
+          <th scope="col-6"></th>
+        </tr>
+      </thead>
+      <tbody class="least-rides-by-date">
+        <tr>
+          <td>Max Temperature: </td>
+          <td><%= @ride_info[:least_rides][:condition].max_temperature %> ºF</td>
+        </tr>
+        <tr>
+          <td>Mean Temperature: </td>
+          <td><%= @ride_info[:least_rides][:condition].mean_temperature %> ºF</td>
+        </tr>
+        <tr>
+          <td>Min Temperature: </td>
+          <td><%= @ride_info[:least_rides][:condition].min_temperature %> ºF</td>
+        </tr>
+        <tr>
+          <td>Mean Humidity: </td>
+          <td><%= @ride_info[:least_rides][:condition].mean_humidity %>%</td>
+        </tr>
+        <tr>
+          <td>Mean Visibility: </td>
+          <td><%= @ride_info[:least_rides][:condition].mean_visibility %> miles</td>
+        </tr>
+        <tr>
+          <td>Mean Wind Speed: </td>
+          <td><%= @ride_info[:least_rides][:condition].mean_wind_speed %> mph</td>
+        </tr>
+        <tr>
+          <td>Preciptation: </td>
+          <td><%= @ride_info[:least_rides][:condition].precipitation %>"</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th scope="col-6"></th>
+          <th scope="col-6"></th>
+        </tr>
+      </thead>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Rides Per Year</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ordered_years = @rides_per_year.sort_by { |date, rides| date} %>
+        <% ordered_years.each do |year, count| %>
+        <tr>
+          <td>Rides in <%= year.strftime('%Y') %>:</td>
+          <td><%= count %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div>
+<header class=''></header>
+<nav class="navbar navbar-dark bg-dark height-40"></nav>
